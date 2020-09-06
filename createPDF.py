@@ -67,7 +67,7 @@ def print_string(pdf_canvas):
     table.drawOn(pdf_canvas, 110 * mm, 242 * mm)
 
     data = [
-        ['振込合計', ' ', '振込先', '　　　　　銀行', '　　　　支店', '口座番号'],
+        ['振込額計', ' ', '振込先', '　　　　　銀行', '　　　　支店', '口座番号'],
 
     ]
     table = Table(data,
@@ -83,7 +83,7 @@ def print_string(pdf_canvas):
     table.drawOn(pdf_canvas, 20 * mm, 232 * mm)
     pdf_canvas.drawString(60, 645, '合計欄')
     data = [
-        ['支給合計', ' ', '控除合計', '', '差引支給額', ''],
+        ['支給額計', ' ', '控除額計', '', '差引支給額', ''],
 
     ]
     table = Table(data,
@@ -97,21 +97,21 @@ def print_string(pdf_canvas):
     ]))
     table.wrapOn(pdf_canvas, 20 * mm, 218 * mm)
     table.drawOn(pdf_canvas, 20 * mm, 218 * mm)
-    pdf_canvas.drawString(60, 585, '支給欄内訳')
+    pdf_canvas.drawString(60, 585, '支給額内訳')
 
     data = [
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        ['基本給', '', '通勤手当', '', '役職手当', '', '配偶者手当', '', '住宅手当', ''],
+        ['時間外手当', '', '深夜手当', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
     ]
     table = Table(data,
                   colWidths=(18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm,),
                   rowHeights=7.5 * mm)
     table.setStyle(TableStyle([
-        ('FONT', (0, 0), (-1, -1), 'HeiseiKakuGo-W5', 11),
+        ('FONT', (0, 0), (-1, -1), 'HeiseiKakuGo-W5', 9),
         ('BOX', (0, 0), (-1, -1), 1, colors.black),
         ('INNERGRID', (0, 0), (-1, -1), 1, colors.black),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
@@ -120,23 +120,23 @@ def print_string(pdf_canvas):
     table.drawOn(pdf_canvas, 20 * mm, 158 * mm)
 
 
-    pdf_canvas.drawString(60, 425, '控除欄内訳')
+    pdf_canvas.drawString(60, 425, '控除額内訳')
 
     data = [
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        ['健康保険料', '', '介護保険料', '', '厚生年金保険料', '', '雇用保険料', '', '住民税', ''],
+        ['所得税', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
     ]
     table = Table(data,
                   colWidths=(18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm,),
                   rowHeights=7.5 * mm)
     table.setStyle(TableStyle([
-        ('FONT', (0, 0), (-1, -1), 'HeiseiKakuGo-W5', 11),
+        ('FONT', (0, 0), (-1, -1), 'HeiseiKakuGo-W5', 6),
         ('BOX', (0, 0), (-1, -1), 1, colors.black),
         ('INNERGRID', (0, 0), (-1, -1), 1, colors.black),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
@@ -148,14 +148,14 @@ def print_string(pdf_canvas):
     pdf_canvas.drawString(60, 235, '勤務状況')
 
     data = [
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        ['出勤日数', '', '残業時間', '', '有給取得数', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', ''],
     ]
     table = Table(data,
                   colWidths=(18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm,),
                   rowHeights=7.5 * mm)
     table.setStyle(TableStyle([
-        ('FONT', (0, 0), (-1, -1), 'HeiseiKakuGo-W5', 11),
+        ('FONT', (0, 0), (-1, -1), 'HeiseiKakuGo-W5', 9),
         ('BOX', (0, 0), (-1, -1), 1, colors.black),
         ('INNERGRID', (0, 0), (-1, -1), 1, colors.black),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
@@ -166,14 +166,14 @@ def print_string(pdf_canvas):
     pdf_canvas.drawString(60, 165, '有給振休')
 
     data = [
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        ['有給残日数', '', '', '', '', '', '', '', '', ''],
 
     ]
     table = Table(data,
                   colWidths=(18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm,),
                   rowHeights=7.5 * mm)
     table.setStyle(TableStyle([
-        ('FONT', (0, 0), (-1, -1), 'HeiseiKakuGo-W5', 11),
+        ('FONT', (0, 0), (-1, -1), 'HeiseiKakuGo-W5', 9),
         ('BOX', (0, 0), (-1, -1), 1, colors.black),
         ('INNERGRID', (0, 0), (-1, -1), 1, colors.black),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
@@ -206,7 +206,8 @@ def print_string(pdf_canvas):
     # 1枚目終了
     pdf_canvas.showPage()
 
-
+#https://jinja.palletsprojects.com/en/2.10.x/
+#https://pyfpdf.readthedocs.io/en/latest/Templates/index.html
 
 
 
